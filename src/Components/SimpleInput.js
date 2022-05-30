@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import UseInput from "../Hooks/use-input";
 
 const SimpleInput = (props) => {
   const [enteredName, setEnteredName] = useState("");
