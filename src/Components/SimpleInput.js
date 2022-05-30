@@ -11,6 +11,8 @@ const SimpleInput = (props) => {
   const formSubmitHandler = (event) => {
     event.preventDefault();
 
+    const enteredValue = inputNameRef.current.value;
+    console.log(enteredValue);
     console.log(enteredName);
     // clear inputs
     setEnteredName("");
@@ -20,6 +22,7 @@ const SimpleInput = (props) => {
       <div className="form-control">
         <label htmlFor="name">Name:</label>
         <input
+          ref={inputNameRef}
           type="text"
           id="name"
           onChange={nameInputHandler}
