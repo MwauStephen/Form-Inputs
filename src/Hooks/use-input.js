@@ -5,9 +5,7 @@ const UseInput = (validateValue) => {
   const [isTouched, setIsTouched] = useState(false);
 
   const valueIsValid = validateValue(enteredValue);
-  const hasError = enteredEmail.trim().includes("@");
-
- 
+  const hasError = !valueIsValid && isTouched;
 
   return;
 };
