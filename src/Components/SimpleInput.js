@@ -18,6 +18,10 @@ const SimpleInput = (props) => {
 
   const nameInputBlur = (event) => {
     setEnteredNameTouched(true);
+    if (enteredName.trim() === "") {
+      setEnteredNameIsValid(false);
+      return;
+    }
   };
   const formSubmitHandler = (event) => {
     event.preventDefault();
