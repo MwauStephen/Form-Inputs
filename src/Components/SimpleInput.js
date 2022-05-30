@@ -10,12 +10,9 @@ const SimpleInput = (props) => {
     inputBlurHandler: nameBlurHandler,
   } = UseInput((value) => value.trim() !== "");
 
-  const [enteredName, setEnteredName] = useState("");
-  const [enteredNameTouched, setEnteredNameTouched] = useState(false);
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
 
-  const enteredNameIsValid = enteredName.trim() !== "";
   const enteredEmailIsValid = enteredEmail.trim().includes("@");
 
   //   check for the touched state
