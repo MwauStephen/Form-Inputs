@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const SimpleInput = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
-  const inputNameRef = useRef("");
 
   useEffect(() => {
     if (enteredNameIsValid) {
@@ -38,8 +37,6 @@ const SimpleInput = (props) => {
     }
     setEnteredNameIsValid(true);
 
-    const enteredValue = inputNameRef.current.value;
-    console.log(enteredValue);
     console.log(enteredName);
     // clear inputs
     setEnteredName("");
@@ -56,7 +53,6 @@ const SimpleInput = (props) => {
       <div className={inputNameClasses}>
         <label htmlFor="name">Name:</label>
         <input
-          ref={inputNameRef}
           type="text"
           id="name"
           onChange={nameInputHandler}
