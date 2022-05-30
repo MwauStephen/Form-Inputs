@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 
 const SimpleInput = (props) => {
   const [enteredName, setEnteredName] = useState("");
+  const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
   const inputNameRef = useRef("");
 
   const nameInputHandler = (event) => {
