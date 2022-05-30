@@ -5,8 +5,10 @@ const SimpleInput = (props) => {
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
   const enteredNameIsValid = enteredName.trim() !== "";
+
   //   check for the touched state
   const nameInputIsInValid = !enteredNameIsValid && enteredNameTouched;
+
   //   check for the entire form validity
   let formIsValid = false;
   if (enteredNameIsValid) {
@@ -40,6 +42,7 @@ const SimpleInput = (props) => {
   const inputNameClasses = nameInputIsInValid
     ? "form-control invalid"
     : "form-control ";
+
   return (
     <form onSubmit={formSubmitHandler}>
       <div className={inputNameClasses}>
@@ -52,6 +55,11 @@ const SimpleInput = (props) => {
           onBlur={nameInputBlur}
         />
         {nameInputIsInValid && <p>Name must not be empty!!!</p>}
+      </div>
+      <div className={inputNameClasses}>
+        <label htmlFor="email">Email:</label>
+        <input type="email" id="email"  />
+        {nameInputIsInValid && <p>Email must not be empty!!!</p>}
       </div>
       <div className="form-actions">
         <button disabled={!formIsValid}>Submit</button>
