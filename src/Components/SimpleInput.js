@@ -11,6 +11,7 @@ const SimpleInput = (props) => {
 
   //   check for the touched state
   const nameInputIsInValid = !enteredNameIsValid && enteredNameTouched;
+  const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
 
   //   check for the entire form validity
   let formIsValid = false;
