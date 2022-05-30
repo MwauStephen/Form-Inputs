@@ -4,8 +4,10 @@ const SimpleInput = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
+  
 
   const enteredNameIsValid = enteredName.trim() !== "";
+  const enteredEmailIsValid = enteredEmail.trim().includes("@");
 
   //   check for the touched state
   const nameInputIsInValid = !enteredNameIsValid && enteredNameTouched;
