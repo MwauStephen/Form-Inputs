@@ -15,7 +15,8 @@ const SimpleInput = (props) => {
   const nameInputHandler = (event) => {
     setEnteredName(event.target.value);
 
-    if (enteredName.trim() !== "") {
+    // validating on every keystroke
+    if (event.target.value.trim() !== "") {
       setEnteredNameIsValid(true);
     }
   };
