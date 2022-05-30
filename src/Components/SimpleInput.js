@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import UseInput from "../Hooks/use-input";
 
 const SimpleInput = (props) => {
+  const {
+    value: enteredName,
+    hasError: nameInputHasError,
+    valueChangeHandler: nameChangeHandler,
+    inputBlurHandler: nameBlurHandler,
+  } = UseInput();
   const [enteredName, setEnteredName] = useState("");
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
   const [enteredEmail, setEnteredEmail] = useState("");
