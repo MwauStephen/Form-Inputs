@@ -25,14 +25,6 @@ const SimpleInput = (props) => {
     formIsValid = true;
   }
 
-  const nameInputHandler = (event) => {
-    setEnteredName(event.target.value);
-  };
-
-  const nameInputBlur = (event) => {
-    setEnteredNameTouched(true);
-  };
-
   //   email handlers
   const emailInputHandler = (event) => {
     setEnteredEmail(event.target.value);
@@ -77,9 +69,9 @@ const SimpleInput = (props) => {
         <input
           type="text"
           id="name"
-          onChange={nameInputHandler}
+          onChange={nameChangeHandler}
           value={enteredName}
-          onBlur={nameInputBlur}
+          onBlur={nameBlurHandler}
         />
         {nameInputIsInValid && <p>Name must not be empty!!!</p>}
       </div>
