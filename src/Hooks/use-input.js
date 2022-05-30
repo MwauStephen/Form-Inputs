@@ -15,7 +15,12 @@ const UseInput = (validateValue) => {
     setIsTouched(true);
   };
 
-  return;
+  return {
+    value: enteredValue,
+    hasError,
+    valueChangeHandler,
+    inputBlurHandler,
+  };
 };
 
 export default UseInput;
