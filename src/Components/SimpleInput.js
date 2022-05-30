@@ -11,7 +11,7 @@ const SimpleInput = (props) => {
       console.log("name input is valid");
     }
   }, [enteredNameIsValid]);
-  
+
   const nameInputHandler = (event) => {
     setEnteredName(event.target.value);
   };
@@ -50,6 +50,7 @@ const SimpleInput = (props) => {
           id="name"
           onChange={nameInputHandler}
           value={enteredName}
+          onBlur={nameInputBlur}
         />
         {nameInputIsInValid && <p>Name must not be empty!!!</p>}
       </div>
