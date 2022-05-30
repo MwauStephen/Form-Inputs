@@ -23,9 +23,14 @@ const SimpleInput = (props) => {
     // clear inputs
     setEnteredName("");
   };
+
+  //   setting form classes dynamically
+  const inputNameClasses = enteredNameIsValid
+    ? "form-control"
+    : "form-control invalid";
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className="form-control">
+      <div className={inputNameClasses}>
         <label htmlFor="name">Name:</label>
         <input
           ref={inputNameRef}
