@@ -9,12 +9,21 @@ const SimpleInput = (props) => {
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
+
+    console.log(enteredName);
+    // clear inputs
+    setEnteredName("");
   };
   return (
     <form onSubmit={formSubmitHandler}>
       <div className="form-control">
         <label htmlFor="name">Name:</label>
-        <input type="text" id="name" onChange={nameInputHandler} />
+        <input
+          type="text"
+          id="name"
+          onChange={nameInputHandler}
+          value={enteredName}
+        />
       </div>
       <div className="form-actions">
         <button>Submit</button>
