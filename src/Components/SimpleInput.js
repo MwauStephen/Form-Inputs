@@ -31,6 +31,9 @@ const SimpleInput = (props) => {
   const emailInputHandler = (event) => {
     setEnteredEmail(event.target.value);
   };
+  const emailInputBlurHandler = () => {
+    setEnteredEmailTouched(true);
+  };
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
@@ -67,7 +70,12 @@ const SimpleInput = (props) => {
       </div>
       <div className={inputNameClasses}>
         <label htmlFor="email">Email:</label>
-        <input type="email" id="email" onChange={emailInputHandler} />
+        <input
+          type="email"
+          id="email"
+          onChange={emailInputHandler}
+          onBlur={emailInputBlurHandler}
+        />
         {nameInputIsInValid && <p>Email must not be empty!!!</p>}
       </div>
       <div className="form-actions">
