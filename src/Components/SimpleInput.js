@@ -17,7 +17,7 @@ const SimpleInput = (props) => {
   const enteredEmailIsValid = enteredEmail.trim().includes("@");
 
   //   check for the touched state
-  const nameInputIsInValid = !enteredNameIsValid && enteredNameTouched;
+
   const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
 
   //   check for the entire form validity
@@ -45,8 +45,7 @@ const SimpleInput = (props) => {
 
     console.log(enteredName);
     // clear  name inputs
-    setEnteredName("");
-    setEnteredNameTouched(false);
+    restInputName("");
 
     // clear email inputs
     setEnteredEmail("");
@@ -54,7 +53,7 @@ const SimpleInput = (props) => {
   };
 
   //   setting form name classes dynamically
-  const inputNameClasses = nameInputIsInValid
+  const inputNameClasses = nameInputHasError
     ? "form-control invalid"
     : "form-control ";
 
