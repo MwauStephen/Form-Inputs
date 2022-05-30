@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const SimpleInput = (props) => {
   const [enteredName, setEnteredName] = useState("");
+  const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
   const enteredNameIsValid = enteredName.trim() !== "";
@@ -21,6 +22,11 @@ const SimpleInput = (props) => {
 
   const nameInputBlur = (event) => {
     setEnteredNameTouched(true);
+  };
+
+  //   email handlers
+  const emailInputHandler = (event) => {
+    setEnteredEmail(event.target.value);
   };
 
   const formSubmitHandler = (event) => {
@@ -58,7 +64,7 @@ const SimpleInput = (props) => {
       </div>
       <div className={inputNameClasses}>
         <label htmlFor="email">Email:</label>
-        <input type="email" id="email"  />
+        <input type="email" id="email" onChange={emailInputHandler} />
         {nameInputIsInValid && <p>Email must not be empty!!!</p>}
       </div>
       <div className="form-actions">
