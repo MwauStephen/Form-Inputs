@@ -7,7 +7,8 @@ const SimpleInput = (props) => {
     hasError: nameInputHasError,
     valueChangeHandler: nameChangeHandler,
     inputBlurHandler: nameBlurHandler,
-  } = UseInput();
+  } = UseInput((value) => value.trim() !== "");
+
   const [enteredName, setEnteredName] = useState("");
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
   const [enteredEmail, setEnteredEmail] = useState("");
