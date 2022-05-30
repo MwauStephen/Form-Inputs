@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 
-const UseInput = () => {
+const UseInput = (validateValue) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [isTouched, setIsTouched] = useState(false);
-  retrun;
+
+  const valueIsValid = validateValue(enteredValue);
+  const hasError = enteredEmail.trim().includes("@");
+
+ 
+
+  return;
 };
 
 export default UseInput;
