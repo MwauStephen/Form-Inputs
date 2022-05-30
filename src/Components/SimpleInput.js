@@ -2,41 +2,35 @@ import React, { useState } from "react";
 
 const SimpleInput = (props) => {
   const [enteredName, setEnteredName] = useState("");
-  const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
+  //   const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
+
+  const enteredNameIsValid = enteredName.trim() !== "";
+  //   check for the touched state
+  const nameInputIsInValid = !enteredNameIsValid && enteredNameTouched;
 
   const nameInputHandler = (event) => {
     setEnteredName(event.target.value);
-
-    // validating on every keystroke
-    if (event.target.value.trim() !== "") {
-      setEnteredNameIsValid(true);
-    }
   };
 
   const nameInputBlur = (event) => {
     setEnteredNameTouched(true);
-    if (enteredName.trim() === "") {
-      setEnteredNameIsValid(false);
-    }
   };
+
   const formSubmitHandler = (event) => {
     event.preventDefault();
 
     setEnteredNameTouched(true);
 
-    if (enteredName.trim() === "") {
-      setEnteredNameIsValid(false);
+    if (!enteredNameIsValid) {
       return;
     }
-    setEnteredNameIsValid(true);
 
     console.log(enteredName);
     // clear inputs
     setEnteredName("");
+    setEnteredNameTouched(false);
   };
-  //   check for the touched state
-  const nameInputIsInValid = !enteredNameIsValid && enteredNameTouched;
 
   //   setting form classes dynamically
   const inputNameClasses = nameInputIsInValid
