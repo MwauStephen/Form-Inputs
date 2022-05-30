@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 const SimpleInput = (props) => {
   const [enteredName, setEnteredName] = useState("");
+  const inputNameRef = useRef("");
 
   const nameInputHandler = (event) => {
     setEnteredName(event.target.value);
