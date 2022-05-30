@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 const SimpleInput = (props) => {
   const [enteredName, setEnteredName] = useState("");
-  const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
+  const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
 
   const enteredNameIsValid = enteredName.trim() !== "";
@@ -15,7 +15,7 @@ const SimpleInput = (props) => {
 
   //   check for the entire form validity
   let formIsValid = false;
-  if (enteredNameIsValid) {
+  if (enteredNameIsValid && enteredEmailIsValid) {
     formIsValid = true;
   }
 
@@ -39,22 +39,31 @@ const SimpleInput = (props) => {
     event.preventDefault();
 
     setEnteredNameTouched(true);
+    setEnteredEmailTouched(true);
 
-    if (!enteredNameIsValid) {
+    if (!enteredNameIsValid && !enteredEmailIsValid) {
       return;
     }
 
     console.log(enteredName);
-    // clear inputs
+    // clear  name inputs
     setEnteredName("");
     setEnteredNameTouched(false);
+
+    // clear email inputs
+    setEnteredEmail("");
+    setEnteredEmailTouched(false);
   };
 
-  //   setting form classes dynamically
+  //   setting form name classes dynamically
   const inputNameClasses = nameInputIsInValid
     ? "form-control invalid"
     : "form-control ";
 
+  // setting form email classes dynamically
+  const inputEmailClasses = emailInputIsInvalid
+    ? "form-control invalid"
+    : "form-control ";
   return (
     <form onSubmit={formSubmitHandler}>
       <div className={inputNameClasses}>
@@ -68,15 +77,16 @@ const SimpleInput = (props) => {
         />
         {nameInputIsInValid && <p>Name must not be empty!!!</p>}
       </div>
-      <div className={inputNameClasses}>
+      <div className={inputEmailClasses}>
         <label htmlFor="email">Email:</label>
         <input
           type="email"
           id="email"
           onChange={emailInputHandler}
           onBlur={emailInputBlurHandler}
+          value={enteredEmail}
         />
-        {nameInputIsInValid && <p>Email must not be empty!!!</p>}
+        {emailInputIsInvalid && <p>Please enter a valid email!!!</p>}
       </div>
       <div className="form-actions">
         <button disabled={!formIsValid}>Submit</button>
