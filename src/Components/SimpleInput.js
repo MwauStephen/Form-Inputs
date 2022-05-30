@@ -11,7 +11,16 @@ const SimpleInput = (props) => {
     reset: restInputName,
   } = UseInput((value) => value.trim() !== "");
 
-  const [enteredEmail, setEnteredEmail] = useState("");
+  const {
+    value: enteredEmail,
+    isValid: enteredEmailIsValid,
+    hasError: emailInputHasError,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
+    reset: restInputEmail,
+  } = UseInput((value) => value.includes("@"));
+
+ 
   const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
 
   const enteredEmailIsValid = enteredEmail.trim().includes("@");
